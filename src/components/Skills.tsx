@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaPython, FaJava, FaHtml5, FaCss3Alt, FaJs, FaDatabase, FaGitAlt, FaFlask, FaMobileAlt, FaNodeJs } from 'react-icons/fa';
+import { FaPython, FaJava, FaHtml5, FaJs, FaDatabase, FaGitAlt, FaFlask, FaMobileAlt, FaNodeJs } from 'react-icons/fa';
 import { SiTypescript } from 'react-icons/si';
 
 const skills = [
