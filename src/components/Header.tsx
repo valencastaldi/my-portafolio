@@ -1,8 +1,10 @@
 import React from 'react';
+// Importa la imagen si está en src/assets/img
+import perfilImg from '../assets/img/perfil.jpg';
 
 const Header: React.FC = () => (
   <header>
-    <img src="/img/perfil.jpg" alt="Foto de perfil" className="perfil-img" />
+    <img src={perfilImg} alt="Foto de perfil" className="perfil-img" />
     <h1>Valentino Castaldi</h1>
     <hr className="header-separador" />
     <p>

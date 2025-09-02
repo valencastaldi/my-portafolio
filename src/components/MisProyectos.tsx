@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+// Importa las imágenes si están en src/assets/img
+import dashboardProfesor from '../assets/img/dashboard_profesor.jpg';
+import loginImg from '../assets/img/login.png';
+import sidebarProfe from '../assets/img/sidebar_profe.jpg';
+import perfilImg from '../assets/img/perfil.jpg';
 
 const proyectos = [
   {
@@ -34,12 +39,13 @@ proyectoEscuelas es un sistema de gestión escolar pensado para facilitar y auto
   <li>Git</li>
 </ul>
     `,
-    img: "/img/dashboard_profesor.jpg",
-    link: "https://github.com/rosasz1/miEscuelaApp2",
+    img: dashboardProfesor,
+    // Cambia el link aquí:
+    link: "https://github.com/valencastaldi/ProyectoEscuelas",
     galeria: [
-      "/img/login.png",
-      "/img/dashboard_profesor.jpg",
-      "/img/sidebar_profe.jpg"
+      loginImg,
+      dashboardProfesor,
+      sidebarProfe
     ]
   },
   {
@@ -64,18 +70,17 @@ proyectoEscuelas es un sistema de gestión escolar pensado para facilitar y auto
       <li>HTML</li>
     </ul>
   `,
-    img: "/img/perfil.jpg",
-    link: "https://github.com/valencastaldi/portafolio" // Pon aquí el link
+    img: perfilImg,
+    link: "https://github.com/valencastaldi/portafolio"
   }
 ];
 
 const MisProyectos: React.FC = () => {
-  const [expandido, setExpandido] = useState(false);
   const [modalImg, setModalImg] = useState<string | null>(null);
   const [proyectoExpandido, setProyectoExpandido] = useState<number | null>(null);
 
   return (
-    <section id="proyectos" className={`tarjeta expandible${expandido ? ' expandida' : ''}`}>
+    <section id="proyectos" className="tarjeta expandible">
       <h2>Mis Proyectos</h2>
       <div className="proyectos-grid">
         {proyectos.map((proy, idx) => (
