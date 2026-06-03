@@ -1,5 +1,7 @@
 # Portfolio · Valentino Castaldi
 
+> **Live**: [my-portafolio-pearl.vercel.app](https://my-portafolio-pearl.vercel.app)
+
 Sitio personal construido con Vite + React + TypeScript, estilizado con Tailwind y animado con Framer Motion. Soporta español e inglés.
 
 ## Stack
@@ -35,4 +37,6 @@ src/
 
 ## Deploy
 
-Está pensado para Vercel (config en `vercel.json`). Auto-deploy al pushear a `main`.
+Hosteado en [Vercel](https://vercel.com) (config en `vercel.json`). Cada push a `main` dispara un deploy automático.
+
+Producción: <https://my-portafolio-pearl.vercel.app>

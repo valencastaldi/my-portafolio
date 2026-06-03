@@ -10,6 +10,6 @@ export default defineConfig({
     },
   },
   preview: {
-    allowedHosts: ['my-portafolio-apmb.onrender.com'],
+    allowedHosts: ['my-portafolio-pearl.vercel.app', 'my-portafolio-apmb.onrender.com'],
   },
 });
