@@ -1,9 +1,15 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { fileURLToPath, URL } from 'node:url';
 
 export default defineConfig({
-    plugins: [react()],
-    preview: {
-        allowedHosts: ['my-portafolio-apmb.onrender.com']
-    }
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
+  preview: {
+    allowedHosts: ['my-portafolio-apmb.onrender.com'],
+  },
 });
