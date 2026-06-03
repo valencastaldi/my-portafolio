@@ -35,6 +35,7 @@ interface DictShape {
     viewLive: string;
     stack: string;
     featured: string;
+    learnMore: string;
   };
   skills: { title: string; kicker: string; hard: string; soft: string };
   services: {
@@ -102,6 +103,7 @@ export const dictionaries: Record<Loc, DictShape> = {
       viewLive: 'Ver demo',
       stack: 'Stack',
       featured: 'destacado',
+      learnMore: 'Saber más',
     },
     skills: {
       title: 'Skills & herramientas',
@@ -193,6 +195,7 @@ export const dictionaries: Record<Loc, DictShape> = {
       viewLive: 'Live demo',
       stack: 'Stack',
       featured: 'featured',
+      learnMore: 'Learn more',
     },
     skills: {
       title: 'Skills & tools',

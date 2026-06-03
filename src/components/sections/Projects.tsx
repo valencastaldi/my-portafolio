@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaTimes, FaChevronLeft, FaChevronRight, FaEnvelopeOpenText } from 'react-icons/fa';
 import { useI18n } from '../../i18n/I18nProvider';
 import { Section } from '../ui/Section';
 import { Tag } from '../ui/Tag';
-import { projects, type Project } from '../../data/projects';
+import { projects, type Project, type GalleryShot } from '../../data/projects';
+
+function normalizeShot(item: string | GalleryShot): GalleryShot {
+  return typeof item === 'string' ? { src: item } : item;
+}
 
 function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void }) {
   const { t, locale } = useI18n();
@@ -73,7 +77,8 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
   const { t, locale } = useI18n();
   const [activeIdx, setActiveIdx] = useState(0);
-  const images = project.gallery ?? [project.cover];
+  const shots: GalleryShot[] = (project.gallery ?? [project.cover]).map(normalizeShot);
+  const images = shots;
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -117,10 +122,25 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 
         <div className="relative bg-black">
           <img
-            src={images[activeIdx]}
+            src={shots[activeIdx].src}
             alt={project.title}
             className="aspect-video w-full object-cover md:aspect-auto md:h-full"
           />
+          {shots[activeIdx].blur?.map((r, i) => (
+            <div
+              key={`${activeIdx}-${i}`}
+              className="pointer-events-none absolute rounded-md"
+              style={{
+                top: r.top,
+                left: r.left,
+                width: r.width,
+                height: r.height,
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+                background: 'rgba(255,255,255,0.06)',
+              }}
+            />
+          ))}
           {images.length > 1 && (
             <>
               <button
@@ -200,6 +220,16 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-brand to-brand-2 px-4 py-2 text-sm font-medium text-white"
               >
                 <FaExternalLinkAlt /> {t.projects.viewLive}
+              </a>
+            )}
+            {project.learnMore && (
+              <a
+                href={`mailto:${project.learnMore.email}?subject=${encodeURIComponent(
+                  project.learnMore.subject[locale],
+                )}&body=${encodeURIComponent(project.learnMore.body[locale])}`}
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-brand to-brand-2 px-4 py-2 text-sm font-medium text-white shadow-[0_10px_30px_-10px_var(--color-brand)]"
+              >
+                <FaEnvelopeOpenText /> {t.projects.learnMore}
               </a>
             )}
           </div>
