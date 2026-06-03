@@ -21,21 +21,21 @@
     <path d="M0 440 Q 140 410 280 440 T 560 440 T 840 440 V500 H0 Z" fill="url(#accent)" opacity="0.30"/>
   </g>
 
-  <g transform="translate(56, 80)">
-    <rect width="84" height="28" rx="14" fill="rgba(34,211,238,0.12)" stroke="rgba(34,211,238,0.45)"/>
-    <text x="42" y="19" font-family="ui-monospace, monospace" font-size="11" fill="#22d3ee" text-anchor="middle" letter-spacing="2">PROJECT</text>
+  <g transform="translate(56, 70)">
+    <rect width="96" height="30" rx="15" fill="rgba(34,211,238,0.14)" stroke="rgba(34,211,238,0.55)"/>
+    <text x="48" y="20" font-family="ui-monospace, monospace" font-size="11" fill="#22d3ee" text-anchor="middle" letter-spacing="2.5">PROJECT</text>
   </g>
 
-  <g transform="translate(56, 150)">
-    <text font-family="Inter, sans-serif" font-size="84" font-weight="800" fill="#f5f5fa">PoolPay</text>
-    <text y="50" font-family="Inter, sans-serif" font-size="22" font-weight="500" fill="#9ca3af">Gestión de pagos para servicios de piletas</text>
+  <g transform="translate(56, 220)">
+    <text font-family="Inter, sans-serif" font-size="80" font-weight="800" fill="#f5f5fa">PoolPay</text>
+    <text y="42" font-family="Inter, sans-serif" font-size="20" font-weight="500" fill="#9ca3af">Gestión de pagos para servicios de piletas</text>
   </g>
 
-  <g transform="translate(56, 300)" font-family="ui-monospace, monospace" font-size="13" fill="#a3a3b0">
+  <g transform="translate(56, 330)" font-family="ui-monospace, monospace" font-size="13" fill="#a3a3b0">
     <text>FastAPI · React · SQLModel · MercadoPago</text>
   </g>
 
-  <g transform="translate(640, 70)" stroke="rgba(255,255,255,0.18)" fill="none" stroke-width="1.6">
+  <g transform="translate(640, 60)" stroke="rgba(255,255,255,0.20)" fill="none" stroke-width="1.6">
     <circle cx="60" cy="60" r="54"/>
     <circle cx="60" cy="60" r="36"/>
     <circle cx="60" cy="60" r="18"/>

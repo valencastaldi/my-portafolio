@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaTimes } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { useI18n } from '../../i18n/I18nProvider';
 import { Section } from '../ui/Section';
 import { Tag } from '../ui/Tag';
@@ -116,21 +116,48 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         </button>
 
         <div className="relative bg-black">
-          <img src={images[activeIdx]} alt={project.title} className="aspect-video w-full object-cover md:aspect-auto md:h-full" />
+          <img
+            src={images[activeIdx]}
+            alt={project.title}
+            className="aspect-video w-full object-cover md:aspect-auto md:h-full"
+          />
           {images.length > 1 && (
-            <div className="absolute inset-x-0 bottom-3 flex justify-center gap-1.5">
-              {images.map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => setActiveIdx(i)}
-                  aria-label={`Image ${i + 1}`}
-                  className={`h-1.5 rounded-full transition-all ${
-                    i === activeIdx ? 'w-6 bg-white' : 'w-1.5 bg-white/40 hover:bg-white/70'
-                  }`}
-                />
-              ))}
-            </div>
+            <>
+              <button
+                type="button"
+                onClick={() => setActiveIdx((i) => (i - 1 + images.length) % images.length)}
+                aria-label="Previous image"
+                className="absolute left-3 top-1/2 grid size-10 -translate-y-1/2 place-items-center rounded-full border border-white/15 bg-black/50 text-white backdrop-blur transition-all hover:scale-105 hover:border-white/40 hover:bg-black/70"
+              >
+                <FaChevronLeft className="text-sm" />
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveIdx((i) => (i + 1) % images.length)}
+                aria-label="Next image"
+                className="absolute right-3 top-1/2 grid size-10 -translate-y-1/2 place-items-center rounded-full border border-white/15 bg-black/50 text-white backdrop-blur transition-all hover:scale-105 hover:border-white/40 hover:bg-black/70"
+              >
+                <FaChevronRight className="text-sm" />
+              </button>
+
+              <div className="absolute right-3 top-3 rounded-full border border-white/15 bg-black/60 px-2.5 py-1 font-mono text-[11px] text-white/80 backdrop-blur">
+                {activeIdx + 1} / {images.length}
+              </div>
+
+              <div className="absolute inset-x-0 bottom-3 flex justify-center gap-1.5">
+                {images.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setActiveIdx(i)}
+                    aria-label={`Image ${i + 1}`}
+                    className={`h-1.5 rounded-full transition-all ${
+                      i === activeIdx ? 'w-6 bg-white' : 'w-1.5 bg-white/40 hover:bg-white/70'
+                    }`}
+                  />
+                ))}
+              </div>
+            </>
           )}
         </div>
 
