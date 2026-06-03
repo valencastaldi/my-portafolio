@@ -4,5 +4,5 @@ export const profile = {
   email: 'tinocastaldi04@gmail.com',
   location: 'Argentina',
   github: 'https://github.com/valencastaldi',
-  linkedin: 'https://linkedin.com/in/valentinocastaldi',
+  linkedin: 'https://www.linkedin.com/in/valentino-castaldi',
 } as const;

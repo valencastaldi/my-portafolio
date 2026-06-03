@@ -98,7 +98,7 @@ export function Contact() {
                 </span>
                 <div>
                   <div className="text-sm font-semibold">LinkedIn</div>
-                  <div className="font-mono text-xs text-fg-dim">/in/valentinocastaldi</div>
+                  <div className="font-mono text-xs text-fg-dim">/in/valentino-castaldi</div>
                 </div>
               </div>
               <span className="text-fg-dim transition-transform group-hover:translate-x-1">→</span>

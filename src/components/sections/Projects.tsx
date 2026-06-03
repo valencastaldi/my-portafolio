@@ -129,15 +129,16 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           {shots[activeIdx].blur?.map((r, i) => (
             <div
               key={`${activeIdx}-${i}`}
-              className="pointer-events-none absolute rounded-md"
+              className="pointer-events-none absolute rounded-sm"
               style={{
                 top: r.top,
                 left: r.left,
                 width: r.width,
                 height: r.height,
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
-                background: 'rgba(255,255,255,0.06)',
+                backdropFilter: 'blur(16px) saturate(120%)',
+                WebkitBackdropFilter: 'blur(16px) saturate(120%)',
+                background: 'rgba(15,23,42,0.35)',
+                boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.06)',
               }}
             />
           ))}
